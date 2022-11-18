@@ -12,32 +12,29 @@ function getComputerChoice(){
     }
 }
 
-console.log(getComputerChoice())
-let computerSelection = getComputerChoice()
+
+const computerSelection = getComputerChoice()
+console.log(computerSelection)
 const playerSelection = "rock" //COME BACK TO THIS
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection == computerSelection) {
+    if (playerSelection === computerSelection) {
         return "It's a tie. Play again!"
-    } else if (playerSelection == 'rock') {
-        if (computerSelection == 'paper') {
-           return "You lose. Paper beats rock."
-        } else {
-           return "You win. Scissors beat paper."
-        }
-    } else if (playerSelection == 'paper') {
-        if (computerSelection == 'rock') {
-            return "You win. Paper beats rock."
-        } else {
-            return "You lose. Paper beats scissors."
-        }
+    } else if (playerSelection === 'rock' && computerSelection === 'paper'){
+        return "You lose. Paper beats rock."
+    } else if (playerSelection === 'rock' && computerSelection === 'scissors'){
+        return "You win. Rock beats scissors."
+    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+        return "You win. Paper beats rock."
+    } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+        return "You lose. Scissors beat paper."
+    } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+        return "You lose. Rock beats scissors."
+    } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+        return "You win. Scissors beats paper."
     } else {
-        if (computerSelection == "scissors") {
-            return "You win. Rock beats scissors."
-        } else {
-            return "You lose. Scissors beat paper."
-        }
+        return "Something went wrong"
     }
 }
 
-console.log(playRound(computerSelection, playerSelection))
+console.log(playRound(playerSelection, computerSelection))
