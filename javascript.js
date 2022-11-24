@@ -11,48 +11,36 @@ function getComputerChoice(){
         return "Something went wrong";
     }
 }
-;
 
 
+let compScore = 0;
+let humanScore = 0;
+
+//PLAY A ROUND
 let buttons = document.getElementsByClassName("player-buttons")
-
 for (button of buttons) {
     button.addEventListener("click", function(e) {
         let playerSelection = e.target.innerHTML.toLowerCase();
         let computerSelection = getComputerChoice();
         displayCompSelection(computerSelection);
-        playRound(playerSelection, computerSelection);
+        if (playRound(playerSelection, computerSelection) == 'win'){
+            humanScore++
+        } else if (playRound(playerSelection, computerSelection) == 'lose'){
+            compScore++
+        }
+        displayScore(compScore,humanScore);
     })
 }
 
-//capture player selection
-
+//DISPLAY COMP CHOICE
 function displayCompSelection(computerSelection){
     document.getElementById("computer-choice").innerHTML = `${computerSelection}`
 }
 
-
-
-//Player clicks 
-    //get player choice
-    //get computer choice
-    //playRound
-
-
-
-// function getPlayerChoice() {
-
-
-//     // if (playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissors') {
-//     //     return playerSelection;
-//     // } else {
-//     //     document.getElementById("results").innerHTML = `${"refresh and try again")
-//     // }
-// }
-
-// getPlayerChoice();
-
-
+//DISPLAY SCORE
+function displayScore(compScore, humanScore){
+    document.getElementById("score").innerText = `Computer: ${compScore} vs Human: ${humanScore}`
+}
 
 
 function playRound(playerSelection, computerSelection) {
@@ -83,28 +71,4 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// function game(){
-//     // let playerScore = 0;
-//     // let computerScore = 0
-    
-//     // for (let i = 0; i < 5; i++) {
-//     //     let playerSelection = getPlayerChoice();
-//     //     let computerSelection = getComputerChoice();
-//     //     let roundResult = playRound(playerSelection, computerSelection);
-//     //     if (roundResult == "win"){
-//     //         playerScore++
-//     //     } else if (roundResult == "lose"){
-//     //         computerScore++
-//     //     } 
-//     // }
 
-//     if (playerScore > computerScore){
-//         document.getElementById("results").innerHTML = `${"You win!!")
-//     } else if (computerScore > playerScore){
-//         document.getElementById("results").innerHTML = `${"You lose.")
-//     } else {
-//         document.getElementById("results").innerHTML = `${"No winner. Play again?")
-//     }
-// }
-
-//game();

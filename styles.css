@@ -9,7 +9,7 @@
     margin-top: 10px;
 }
 
-#results {
+#results, #score {
     display: flex;
     justify-content: center;
     border: 2px solid black;
