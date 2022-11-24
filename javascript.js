@@ -1,22 +1,28 @@
-// function getComputerChoice(){
-//     // randomly returns either rock, paper or scissors
-//     let compChoice = Math.floor(Math.random() * 3);
-//     if (compChoice == 0){
-//         return "rock"
-//     } else if (compChoice == 1) {
-//         return "paper"
-//     } else if (compChoice == 2) {
-//         return "scissors"
-//     } else {
-//         return "Something went wrong";
-//     }
-// }
+function getComputerChoice(){
+    // randomly returns either rock, paper or scissors
+    let compChoice = Math.floor(Math.random() * 3);
+    if (compChoice == 0){
+        return "rock"
+    } else if (compChoice == 1) {
+        return "paper"
+    } else if (compChoice == 2) {
+        return "scissors"
+    } else {
+        return "Something went wrong";
+    }
+}
 
 
-// const computerSelection = getComputerChoice()
+
+let computerSelection = getComputerChoice();
 // console.log(computerSelection)
-
-
+let buttons = document.getElementsByTagName("button");
+for (button of buttons) {
+    button.addEventListener("click", displayCompSelection);
+}
+function displayCompSelection(){
+    document.getElementById("computer-choice").innerHTML = `${computerSelection}`
+}
 
 // function getPlayerChoice() {
 
@@ -33,14 +39,8 @@
 
 // getPlayerChoice();
 
-let buttons = document.getElementsByTagName("button");
-for (button of buttons) {
-    button.addEventListener("click", doTheThing);
-}
 
-function doTheThing(){
-    console.log('THING')
-}
+
 
 // function playRound(playerSelection, computerSelection) {
 //     if (playerSelection === computerSelection) {
