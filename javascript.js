@@ -17,6 +17,8 @@ let compScore = 0;
 let humanScore = 0;
 
 //PLAY A ROUND
+
+
 let buttons = document.getElementsByClassName("player-buttons")
 for (button of buttons) {
     button.addEventListener("click", function(e) {
@@ -29,8 +31,19 @@ for (button of buttons) {
             compScore++
         }
         displayScore(compScore,humanScore);
+        if (humanScore == 5){
+            document.getElementById("results").innerHTML = "Game over! You win! Play again?";
+            humanScore = 0;
+            compScore = 0;
+        } else if (compScore == 5) {
+            document.getElementById("results").innerHTML = "Game over! Computer wins :( Play again?";
+            humanScore = 0;
+            compScore = 0;
+        }
     })
+    
 }
+
 
 //DISPLAY COMP CHOICE
 function displayCompSelection(computerSelection){
